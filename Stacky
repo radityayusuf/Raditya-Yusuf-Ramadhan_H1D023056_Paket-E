@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAXSTACK 5
+int i;
+typedef struct{
+    int item[MAXSTACK];
+    int count;
+}Stack;
+Stack tumpukan;
+
+int isFull (Stack *x){
+    int hasil=0;
+    if((x->count)>=MAXSTACK){
+    hasil=1;
+    }
+    return hasil;
+}
+//Untuk menghitung angka ganjil hingga bilangan ke-n bisa menggunakan looping, tapi mohon maaf mas asprak saya gabisa bikin syntaxnya
+int isEmpty (Stack *x){
+    int hasil=0;
+    if ((x->count)==0){
+        hasil=1;
+    }
+    return hasil;
+}
+void membuatStack(Stack *x) {
+    x->count=0;
+}
+void push(int data ,Stack *x) {
+    if (isFull(x)==1 ){
+        printf("Stack penuh\n");
+    }else{
+        x->item[x->count]=data;
+        ++(x->count);
+        printf("berhasil memasukan\n");
+    }
+}
+ int main(){
+    int i;
+    membuatStack(&tumpukan);
+    printf("masukan 3\n");
+    push(3,&tumpukan);
+    printf("masukan 5\n");
+    push(5,&tumpukan);
+    printf("masukan 7\n");
+    push(7,&tumpukan);
+    printf("masukan 9\n");
+    push(9,&tumpukan);
+}
